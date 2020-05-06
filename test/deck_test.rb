@@ -62,6 +62,6 @@ class DeckTest < Minitest::Test
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
 
-    assert_equal [card1], deck.remove_card 
+    assert_equal card1, deck.remove_card 
   end
 end
