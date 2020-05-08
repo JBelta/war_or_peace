@@ -32,8 +32,14 @@ class TurnTest < Minitest::Test
     assert_equal [], @turn.spoils_of_war
   end
 
-  def test_type
+  def test_type_basic
     assert_equal :basic, @turn.type
+  end
+
+  def test_type_war
+  end
+
+  def test_type_mutually_assured_destruction
   end
 
   def test_winner
