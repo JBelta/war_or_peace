@@ -52,5 +52,10 @@ class TurnTest < Minitest::Test
 
   def test_winner
     assert_equal @player1, @turn.winner
+
+    @deck1.remove_card
+    @deck2.remove_card
+
+    assert_equal @player2, @turn.winner
   end
 end
