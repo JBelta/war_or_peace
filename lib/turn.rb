@@ -34,6 +34,18 @@ class Turn
       elsif @player1.deck.cards[2].rank < @player2.deck.cards[2].rank
         @player2
       end
+    else
+      "No Winner"
+    end
+  end
+
+  def pile_of_cards
+    if :basic
+      spoils_of_war << @player1.deck.cards[0]
+      spoils_of_war << @player2.deck.cards[0]
+    elsif :war
+      spoils_of_war << @player1.deck.cards[0..2]
+      spoils_of_war << @player2.deck.cards[0..2]
     end
   end
 end
