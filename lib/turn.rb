@@ -42,14 +42,16 @@ class Turn
   def pile_of_cards
     round_1 = @player1.deck.cards[0].rank == @player2.deck.cards[0].rank
     round_2 = @player1.deck.cards[2].rank == @player2.deck.cards[2].rank
-    if @player1.deck.cards[0].rank > @player2.deck.cards[0].rank || @player1.deck.cards[0].rank < @player2.deck.cards[0].rank
-      @spoils_of_war << @player1.deck.cards[0]
-      @spoils_of_war << @player2.deck.cards[0]
+    if (round_1 && round_2)
+      @player1.deck.cards.shift(3)
+      @player2.deck.cards.shift(3)
     elsif round_1
       @spoils_of_war << @player1.deck.cards[0..2]
       @spoils_of_war << @player2.deck.cards[0..2]
       @spoils_of_war.flatten!
-    elsif round_1 && round_2
+    elsif @player1.deck.cards[0].rank > @player2.deck.cards[0].rank || @player1.deck.cards[0].rank < @player2.deck.cards[0].rank
+      @spoils_of_war << @player1.deck.cards[0]
+      @spoils_of_war << @player2.deck.cards[0]
     end
   end
 end
