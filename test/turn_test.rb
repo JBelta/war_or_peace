@@ -80,11 +80,12 @@ class TurnTest < Minitest::Test
     @deck2 = Deck.new([@card4, @card3, @card6, @card7])
     @player2 = Player.new("Aurora", @deck2)
     @turn = Turn.new(@player1, @player2)
-    @turn.pile_of_cards
     assert_equal :mutually_assured_destruction, @turn.type
     assert_equal "No Winner", @turn.winner
+
+    @turn.pile_of_cards
     assert_equal [], @turn.spoils_of_war
-    assert_equal [@card8], @player1.deck
-    assert_equal [@card7], @player2.deck
+    assert_equal @deck1, @player1.deck
+    assert_equal @deck2, @player2.deck
   end
 end
