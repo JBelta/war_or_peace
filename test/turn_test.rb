@@ -81,5 +81,6 @@ class TurnTest < Minitest::Test
     @player2 = Player.new("Aurora", @deck2)
     @turn = Turn.new(@player1, @player2)
     assert_equal :mutually_assured_destruction, @turn.type
+    assert_equal "No Winner", @turn.winner
   end
 end

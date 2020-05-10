@@ -33,9 +33,9 @@ class Turn
         @player1
       elsif @player1.deck.cards[2].rank < @player2.deck.cards[2].rank
         @player2
-      end
-    else
+      elsif @player1.deck.cards[2].rank == @player2.deck.cards[2].rank
       "No Winner"
+      end
     end
   end
 
@@ -49,6 +49,7 @@ class Turn
       @spoils_of_war << @player1.deck.cards[0..2]
       @spoils_of_war << @player2.deck.cards[0..2]
       @spoils_of_war.flatten!
+    elsif round_1 && round_2
     end
   end
 end
