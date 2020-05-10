@@ -74,4 +74,12 @@ class TurnTest < Minitest::Test
     @turn.pile_of_cards
     assert_equal [@card1, @card2, @card5, @card4, @card3, @card6], @turn.spoils_of_war
   end
+
+  def test_pile_of_cards_mutually_assured_destruction
+    @card6 = Card.new(:diamond, '8', 8)
+    @deck2 = Deck.new([@card4, @card3, @card6, @card7])
+    @player2 = Player.new("Aurora", @deck2)
+    @turn = Turn.new(@player1, @player2)
+    assert_equal :mutually_assured_destruction, @turn.type
+  end
 end
